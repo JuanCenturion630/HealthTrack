@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack | Dashboard Recepción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/patients.css">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="brand">
+            <h4>HealthTrack</h4>
+            <small>Panel de Recepción</small>
+        </div>
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Turnos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-users"></i>
+                    <span>Pacientes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user-md"></i>
+                    <span>Médicos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Pagos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="top-bar">
+            <button class="btn d-md-none" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="d-flex align-items-center gap-3">
+                <span class="notification-badge">5 Notificaciones</span>
+                <i class="fas fa-bell"></i>
+                <small>Carlos Sanchez</small>
+            </div>
+        </div>
+
+        <h2 class="section-title">Pacientes</h2>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="card-title">Búsqueda de Pacientes</h5>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newPatientModal">
+                        <i class="fas fa-user-plus"></i>
+                    </button>
+                </div>
+                <form id="searchForm" class="row g-3">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="searchName" placeholder="Buscar por nombre">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="searchDNI" placeholder="Buscar por DNI">
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary w-100">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title mb-3">Pacientes</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover text-center align-middle">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>DNI</th>
+                                <th>Edad</th>
+                                <th>Obra Social</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patientsTableBody">
+                            <!-- Los pacientes se cargarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para nuevo paciente -->
+    <div class="modal fade" id="newPatientModal" tabindex="-1" aria-labelledby="newPatientModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newPatientModalLabel">Registrar Nuevo Paciente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newPatientForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dni" class="form-label">DNI</label>
+                            <input type="text" class="form-control" id="dni" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="birthdate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="insurance" class="form-label">Obra Social</label>
+                            <input type="text" class="form-control" id="insurance">
+                        </div>
+                        <div class="mb-3">
+                            <label for="allergies" class="form-label">Alergias</label>
+                            <textarea class="form-control" id="allergies" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="saveNewPatient">Guardar Paciente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para ver detalles del paciente -->
+    <div class="modal fade" id="patientDetailsModal" tabindex="-1" aria-labelledby="patientDetailsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="patientDetailsModalLabel">Detalles del Paciente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Información General</h6>
+                            <p><strong>Nombre:</strong> <span id="detailName"></span></p>
+                            <p><strong>DNI:</strong> <span id="detailDNI"></span></p>
+                            <p><strong>Edad:</strong> <span id="detailAge"></span></p>
+                            <p><strong>Obra Social:</strong> <span id="detailInsurance"></span></p>
+                            <p><strong>Alergias:</strong> <span id="detailAllergies"></span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Historial de Turnos</h6>
+                            <ul id="appointmentHistory" class="list-group">
+                                <!-- El historial de turnos se cargará aquí dinámicamente -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h6>Historial de Pagos</h6>
+                            <table class="table table-sm text-center align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Concepto</th>
+                                        <th>Monto</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="paymentHistory">
+                                    <!-- El historial de pagos se cargará aquí dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/patients.js"></script>
+</body>
+
+</html>

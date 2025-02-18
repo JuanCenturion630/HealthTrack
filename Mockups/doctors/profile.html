@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack | Dashboard Médico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="brand">
+            <h4>HealthTrack</h4>
+            <small>Panel Médico</small>
+        </div>
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Turnos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-users"></i>
+                    <span>Pacientes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-user-md"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="top-bar">
+            <button class="btn d-md-none" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="d-flex align-items-center gap-3">
+                <span class="notification-badge">3 Notificaciones</span>
+                <i class="fas fa-bell"></i>
+                <small>Dr. Juan Pérez</small>
+            </div>
+        </div>
+
+        <h2 class="section-title">Mi Perfil</h2>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3 id="profileName">Dr. Juan Pérez</h3>
+                        <p class="text-muted mb-0">Médico</p>
+                        <button class="btn btn-primary mt-3" onclick="toggleEditMode()">Editar Perfil</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Información Personal</h4>
+                        <form id="profileForm">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="fullName" value="Juan Pérez" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email"
+                                    value="carlos.sanchez@healthtrack.com" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control" id="phone" value="123-456-7890" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="medicalSpecialty" class="form-label">Especialidad</label>
+                                <input type="text" class="form-control" id="medicalSpecialty" value="Médico Clínico"
+                                    disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="medicalLicenseNumber" class="form-label">Matrícula</label>
+                                <input type="text" class="form-control" id="medicalLicenseNumber" value="MN 12345" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="address" value="Calle Principal 123, Ciudad"
+                                    disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="birthdate" class="form-label">Fecha de nacimiento</label>
+                                <input type="date" class="form-control" id="birthdate" value="1980-05-12" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="schedule" class="form-label">Horario de Trabajo</label>
+                                <input type="text" class="form-control" id="schedule"
+                                    value="Lunes a Viernes, 8:00 - 17:00" disabled>
+                            </div>
+                            <h4 class="card-title">Preferencias de Notificación</h4>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="emailNotifications" checked
+                                    disabled>
+                                <label class="form-check-label" for="emailNotifications">
+                                    Recibir notificaciones por email
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="appointmentReminders" checked
+                                    disabled>
+                                <label class="form-check-label" for="appointmentReminders">
+                                    Recordatorios de citas
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-3" id="saveButton"
+                                style="display: none;">Guardar Cambios</button>
+                        </form>
+                        <h4 class="card-title mb-3">Disponibilidad</h4>
+                        <div class="schedule-item">
+                            <strong>Lunes:</strong> 08:00 - 12:00
+                        </div>
+                        <div class="schedule-item">
+                            <strong>Martes:</strong> 13:00 - 15:00
+                        </div>
+                        <div class="schedule-item">
+                            <strong>Jueves:</strong> 10:00 - 11:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

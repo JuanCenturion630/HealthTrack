@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack - Servicios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/services.css">nk
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="brand">
+            <h4>HealthTrack</h4>
+            <small>Panel Médico</small>
+        </div>
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Turnos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-users"></i>
+                    <span>Pacientes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user-md"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="top-bar">
+            <button class="btn d-md-none" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="d-flex align-items-center gap-3">
+                <span class="notification-badge">5 Notificaciones</span>
+                <i class="fas fa-bell"></i>
+                <small>Dr. Juan Pérez</small>
+            </div>
+        </div>
+        
+        <div id="servicesView">
+            <h2 class="section-title">Servicios</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title">Consulta General</h5>
+                                <i class="fas fa-stethoscope service-icon"></i>
+                            </div>
+                            <p class="card-text">Evaluación médica general para diagnóstico y tratamiento de condiciones
+                                comunes.</p>
+                            <button class="btn btn-primary mt-3" onclick="showCalendar('Consulta General')">Ver
+                                Turnos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title">Control de Presión Arterial</h5>
+                                <i class="fas fa-heartbeat service-icon"></i>
+                            </div>
+                            <p class="card-text">Monitoreo y control de la presión arterial para pacientes hipertensos o
+                                en riesgo.</p>
+                            <button class="btn btn-primary mt-3" onclick="showCalendar('Consulta General')">Ver
+                                Turnos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title">Control de Diabetes</h5>
+                                <i class="fas fa-syringe service-icon"></i>
+                            </div>
+                            <p class="card-text">Seguimiento y manejo de pacientes con diabetes, incluyendo control de
+                                glucemia.</p>
+                            <button class="btn btn-primary mt-3" onclick="showCalendar('Consulta General')">Ver
+                                Turnos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title">Electrocardiograma</h5>
+                                <i class="fas fa-heartbeat service-icon"></i>
+                            </div>
+                            <p class="card-text">Estudio de la actividad eléctrica del corazón para detectar problemas
+                                cardíacos.</p>
+                            <button class="btn btn-primary mt-3" onclick="showCalendar('Consulta General')">Ver
+                                Turnos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title">Chequeo Anual</h5>
+                                <i class="fas fa-clipboard-check service-icon"></i>
+                            </div>
+                            <p class="card-text">Evaluación completa de salud anual, incluyendo exámenes de laboratorio
+                                y físicos.</p>
+                            <button class="btn btn-primary mt-3" onclick="showCalendar('Consulta General')">Ver
+                                Turnos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title">Vacunación</h5>
+                                <i class="fas fa-syringe service-icon"></i>
+                            </div>
+                            <p class="card-text">Administración de vacunas según el calendario de vacunación o
+                                requerimientos específicos.</p>
+                            <button class="btn btn-primary mt-3" onclick="showCalendar('Consulta General')">Ver
+                                Turnos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar View -->
+        <div id="calendarView" class="hidden">
+            <h2 class="section-title">
+                <span id="calendarTitle">Turnos - Consulta General</span>
+                <button class="btn btn-primary" onclick="showServices()">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </button>
+            </h2>
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button class="btn btn-outline-primary" onclick="previousMonth()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="currentMonth">Agosto 2023</h3>
+                    <button class="btn btn-outline-primary" onclick="nextMonth()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="text-center fw-bold">Dom</div>
+                    <div class="text-center fw-bold">Lun</div>
+                    <div class="text-center fw-bold">Mar</div>
+                    <div class="text-center fw-bold">Mié</div>
+                    <div class="text-center fw-bold">Jue</div>
+                    <div class="text-center fw-bold">Vie</div>
+                    <div class="text-center fw-bold">Sáb</div>
+                    <!-- Calendar days will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/services.js"></script>
+</body>
+
+</html>

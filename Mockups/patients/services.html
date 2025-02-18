@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack | Dashboard Paciente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/services.css">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="brand">
+            <h4>HealthTrack</h4>
+            <small>Panel de Paciente</small>
+        </div>
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Turnos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-pills"></i>
+                    <span>Recetas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Pagos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="top-bar">
+            <button class="btn d-md-none" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="d-flex align-items-center gap-3">
+                <span class="notification-badge">2 Notificaciones</span>
+                <i class="fas fa-bell"></i>
+                <small>María Gonzalez</small>
+            </div>
+        </div>
+
+        <h2 class="section-title">Servicios</h2>
+        <div class="table-responsive mb-5">
+            <table class="table table-hover text-center align-middle">
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Descripción</th>
+                        <th>Duración</th>
+                        <th>Precio</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Consulta Cardiológica</td>
+                        <td>Evaluación completa del sistema cardiovascular</td>
+                        <td>30 min</td>
+                        <td>$15000</td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1 justify-content-center">
+                                <button class="btn btn-sm btn-create-appointment flex-fill" data-bs-toggle="modal"
+                                    data-bs-target="#appointmentModal">
+                                    <i class="fa-regular fa-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Consulta Neurológica</td>
+                        <td>Evaluación del sistema nervioso y función cerebral</td>
+                        <td>45 min</td>
+                        <td>$18000</td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1 justify-content-center">
+                                <button class="btn btn-sm btn-create-appointment flex-fill" data-bs-toggle="modal"
+                                    data-bs-target="#appointmentModal">
+                                    <i class="fa-regular fa-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Radiografía</td>
+                        <td>Imágenes diagnósticas de alta calidad</td>
+                        <td>15 min</td>
+                        <td>$10000</td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1 justify-content-center">
+                                <button class="btn btn-sm btn-create-appointment flex-fill" data-bs-toggle="modal"
+                                    data-bs-target="#appointmentModal">
+                                    <i class="fa-regular fa-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Análisis de Sangre</td>
+                        <td>Examen completo de sangre</td>
+                        <td>10 min</td>
+                        <td>$8000</td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1 justify-content-center">
+                                <button class="btn btn-sm btn-create-appointment flex-fill" data-bs-toggle="modal"
+                                    data-bs-target="#appointmentModal">
+                                    <i class="fa-regular fa-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Consulta Dermatológica</td>
+                        <td>Evaluación de la salud de la piel</td>
+                        <td>30 min</td>
+                        <td>$13000</td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1 justify-content-center">
+                                <button class="btn btn-sm btn-create-appointment flex-fill" data-bs-toggle="modal"
+                                    data-bs-target="#appointmentModal">
+                                    <i class="fa-regular fa-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Paquetes -->
+        <h2 class="section-title">Paquetes de Servicios</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="package-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h5>Chequeo Cardiovascular Completo</h5>
+                    <p>Incluye: Consulta cardiológica, ECG, Ecocardiograma y Análisis de sangre.</p>
+                    <p><strong>Duración:</strong> 2 horas</p>
+                    <p><strong>Precio:</strong> $35000</p>
+                    <div class="d-flex flex-wrap gap-1 justify-content-center">
+                        <button class="btn btn-sm btn-create-appointment flex-fill" data-bs-toggle="modal"
+                            data-bs-target="#appointmentModal">
+                            <i class="fa-regular fa-calendar-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="package-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h5>Chequeo Anual Completo</h5>
+                    <p>Incluye: Consulta clínica, Análisis de sangre, Radiografía de tórax y Electrocardiograma.</p>
+                    <p><strong>Duración:</strong> 3 horas</p>
+                    <p><strong>Precio:</strong> $400000</p>
+                    <div class="d-flex flex-wrap gap-1 justify-content-center">
+                        <button class="btn btn-sm btn-create-appointment flex-fill" data-bs-toggle="modal"
+                            data-bs-target="#appointmentModal">
+                            <i class="fa-regular fa-calendar-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para crear turno -->
+    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="appointmentModalLabel">Crear Turno</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="service" class="form-label">Servicio/Paquete</label>
+                            <input type="text" class="form-control" id="service" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Fecha</label>
+                            <input type="date" class="form-control" id="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Hora</label>
+                            <input type="time" class="form-control" id="time" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" style="background-color: var(--primary);">Confirmar
+                        Turno</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/services.js"></script>
+</body>
+
+</html>

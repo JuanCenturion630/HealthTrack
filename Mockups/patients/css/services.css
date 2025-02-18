@@ -1,0 +1,151 @@
+:root {
+    --primary: #003f59;
+    --secondary: #e9b555;
+    --light-bg: #f8f9fa;
+}
+
+body {
+    background-color: var(--light-bg);
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+    background-color: var(--primary);
+    min-height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    transition: all 0.3s;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.brand {
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+    color: white !important;
+    padding: 12px 20px;
+    margin: 4px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--secondary);
+    color: var(--primary) !important;
+}
+
+.nav-link i {
+    width: 20px;
+}
+
+.package-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    background-color: var(--primary);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.top-bar {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title {
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondary);
+}
+
+.btn-create-appointment {
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn-create-appointment:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.table {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: var(--primary);
+    color: white;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(233, 181, 85, 0.1);
+}
+
+.notification-badge {
+    background-color: var(--secondary);
+    color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        margin-left: -250px;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .sidebar.active {
+        margin-left: 0;
+    }
+
+    .content.active {
+        margin-left: 250px;
+    }
+}

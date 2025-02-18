@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack | Dashboard Paciente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/appointments.css">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="brand">
+            <h4>HealthTrack</h4>
+            <small>Panel de Paciente</small>
+        </div>
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Turnos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-pills"></i>
+                    <span>Recetas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Pagos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="top-bar">
+            <button class="btn d-md-none" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="d-flex align-items-center gap-3">
+                <span class="notification-badge">2 Notificaciones</span>
+                <i class="fas fa-bell"></i>
+                <small>María Gonzalez</small>
+            </div>
+        </div>
+
+        <div class="welcome-banner">
+            <h3>¡Bienvenida, María!</h3>
+            <p>Tu próximo turno es el 15 de Marzo a las 15:30 hs</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h5>Próximos Turnos</h5>
+                    <h3>2</h3>
+                    <small class="text-muted">Ver todos los turnos</small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h5>Mis Recetas</h5>
+                    <h3>3</h3>
+                    <small class="text-muted">Ver recetas</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col">
+                <div class="dashboard-card">
+                    <h5 class="mb-4">Historial de Turnos</h5>
+                    <div class="table-responsive">
+                        <table class="table text-center align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Doctor</th>
+                                    <th>Especialidad</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10/03/2024</td>
+                                    <td>Dr. García</td>
+                                    <td>Cardiología</td>
+                                    <td><span class="badge bg-success">Realizado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>15/03/2024</td>
+                                    <td>Dra. Martínez</td>
+                                    <td>Traumatología</td>
+                                    <td><span class="badge bg-warning">Pendiente</span></td>
+                                </tr>
+                                <tr>
+                                    <td>16/06/2024</td>
+                                    <td>Dra. Martínez</td>
+                                    <td>Traumatología</td>
+                                    <td><span class="badge bg-info">Solicitado</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/appointments.js"></script>
+</body>
+
+</html>

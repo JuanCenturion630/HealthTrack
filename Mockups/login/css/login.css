@@ -1,0 +1,78 @@
+body {
+    background-image: url('https://source.unsplash.com/1920x1080/?medical,hospital');
+    background-color: #f8f9fa;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #004757;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.medical-icon {
+    color: #dd983a;
+    font-size: 24px;
+}
+
+.form-container {
+    padding: 20px 30px;
+}
+
+.login-btn {
+    background-color: #004757;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.login-btn:hover {
+    background-color: #003744;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+    color: #004757;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack | Dashboard Paciente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/payments.css">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="brand">
+            <h4>HealthTrack</h4>
+            <small>Panel de Paciente</small>
+        </div>
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Turnos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-pills"></i>
+                    <span>Recetas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Pagos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="top-bar">
+            <button class="btn d-md-none" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="d-flex align-items-center gap-3">
+                <span class="notification-badge">2 Notificaciones</span>
+                <i class="fas fa-bell"></i>
+                <small>María Gonzalez</small>
+            </div>
+        </div>
+
+        <h2 class="section-title">Historial de Pagos</h2>
+        <div class="table-responsive mb-5">
+            <table class="table table-hover text-center align-middle">
+                <thead>
+                    <tr>
+                        <th>Fecha de Pago</th>
+                        <th>Descripción</th>
+                        <th>Monto</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>15/07/2023</td>
+                        <td>Consulta Oftalmológica</td>
+                        <td>$10000</td>
+                        <td><span class="badge bg-success">Realizado</span></td>
+                    </tr>
+                    <tr>
+                        <td>01/07/2023</td>
+                        <td>Análisis de Orina</td>
+                        <td>$8000</td>
+                        <td><span class="badge bg-success">Realizado</span></td>
+                    </tr>
+                    <tr>
+                        <td>15/06/2023</td>
+                        <td>Consulta Dermatológica</td>
+                        <td>$12000</td>
+                        <td><span class="badge bg-success">Realizado</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title">Información de Pago</h2>
+        <div class="payment-card mb-5">
+            <h5 class="mb-4">Cómo Realizar tu Pago</h5>
+            <p>Todos los pagos deben realizarse en efectivo en nuestra oficina de administración.</p>
+            <p><strong>Horario de atención:</strong> Lunes a Viernes de 8:00 a 19:00 y Sabados de 09:00 a 13:00</p>
+            <p><strong>Ubicación:</strong> Av Caseros 1508, Parque Patricios, CABA. Oficina 105</p>
+            <p>Por favor, asegúrate de traer el monto exacto para facilitar el proceso de pago.</p>
+            <div class="alert alert-info mt-3">
+                <i class="fas fa-info-circle me-2"></i>
+                Recuerda solicitar siempre tu comprobante de pago.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/payments.js"></script>
+</body>
+
+</html>

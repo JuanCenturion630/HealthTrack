@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack | Dashboard Recepción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/doctors.css">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="brand">
+            <h4>HealthTrack</h4>
+            <small>Panel de Recepción</small>
+        </div>
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Turnos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-users"></i>
+                    <span>Pacientes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-user-md"></i>
+                    <span>Médicos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Pagos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="top-bar">
+            <button class="btn d-md-none" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="d-flex align-items-center gap-3">
+                <span class="notification-badge">5 Notificaciones</span>
+                <i class="fas fa-bell"></i>
+                <small>Carlos Sanchez</small>
+            </div>
+        </div>
+
+        <h2 class="section-title">Médicos</h2>
+
+        <div class="search-container">
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    <input type="text" class="form-control" id="doctorSearch"
+                        placeholder="Buscar médico por nombre o apellido">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <select class="form-select" id="specialtyFilter">
+                        <option value="">Todas las especialidades</option>
+                        <option value="cardiologia">Cardiología</option>
+                        <option value="dermatologia">Dermatología</option>
+                        <option value="pediatria">Pediatría</option>
+                        <option value="traumatologia">Traumatología</option>
+                        <option value="neurologia">Neurología</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <button class="btn btn-primary w-100" onclick="searchDoctors()">Buscar</button>
+                </div>
+                <div class="col-md-1 mb-3">
+                    <button class="btn btn-primary w-100">
+                        <i class="fas fa-user-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="doctorResults">
+            <!-- Los resultados de la búsqueda se mostrarán aquí -->
+        </div>
+    </div>
+
+    <!-- Modal para editar horarios y servicios -->
+    <div class="modal fade" id="editDoctorModal" tabindex="-1" aria-labelledby="editDoctorModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editDoctorModalLabel">Editar Horarios y Servicios</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editDoctorForm">
+                        <!-- Horarios -->
+                        <h6 class="mb-3">Horarios de Trabajo</h6>
+                        <div class="mb-4">
+                            <!-- Lunes -->
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input day-checkbox" type="checkbox" id="monday"
+                                        name="days">
+                                    <label class="form-check-label" for="monday">Lunes</label>
+                                </div>
+                                <div class="time-inputs" id="mondayTimes">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="start">Desde</label>
+                                            <input type="time" class="form-control" id="start" name="mondayStart">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="end">Hasta</label>
+                                            <input type="time" class="form-control" id="end" name="mondayEnd">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Martes -->
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input day-checkbox" type="checkbox" id="tuesday"
+                                        name="days">
+                                    <label class="form-check-label" for="tuesday">Martes</label>
+                                </div>
+                                <div class="time-inputs" id="tuesdayTimes">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="start">Desde</label>
+                                            <input type="time" class="form-control" id="start" name="tuesdayStart">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="end">Hasta</label>
+                                            <input type="time" class="form-control" id="end" name="tuesdayEnd">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Miércoles -->
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input day-checkbox" type="checkbox" id="wednesday"
+                                        name="days">
+                                    <label class="form-check-label" for="wednesday">Miércoles</label>
+                                </div>
+                                <div class="time-inputs" id="wednesdayTimes">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="start">Desde</label>
+                                            <input type="time" class="form-control" id="start" name="wednesdayStart">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="end">Hasta</label>
+                                            <input type="time" class="form-control" id="end" name="wednesdayEnd">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Jueves -->
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input day-checkbox" type="checkbox" id="thursday"
+                                        name="days">
+                                    <label class="form-check-label" for="thursday">Jueves</label>
+                                </div>
+                                <div class="time-inputs" id="thursdayTimes">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="start">Desde</label>
+                                            <input type="time" class="form-control" id="start" name="thursdayStart">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="end">Hasta</label>
+                                            <input type="time" class="form-control" id="end" name="thursdayEnd">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Viernes -->
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input day-checkbox" type="checkbox" id="friday"
+                                        name="days">
+                                    <label class="form-check-label" for="friday">Viernes</label>
+                                </div>
+                                <div class="time-inputs" id="fridayTimes">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="start">Desde</label>
+                                            <input type="time" class="form-control" id="start" name="fridayStart">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="end">Hasta</label>
+                                            <input type="time" class="form-control" id="end" name="fridayEnd">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h6 class="mb-3">Servicios</h6>
+                        <div class="mb-4">
+                            <table class="table table-responsive table-hover text-center align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Servicio</th>
+                                        <th>Seleccionar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Traumatología</td>
+                                        <td>
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input specialty-checkbox" type="checkbox"
+                                                    id="traumatologia" name="specialties" value="Traumatología">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medicina Deportiva</td>
+                                        <td>
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input specialty-checkbox" type="checkbox"
+                                                    id="medicinadeportiva" name="specialties"
+                                                    value="Medicina Deportiva">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cardiología</td>
+                                        <td>
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input specialty-checkbox" type="checkbox"
+                                                    id="cardiologia" name="specialties" value="Cardiología">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pediatría</td>
+                                        <td>
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input specialty-checkbox" type="checkbox"
+                                                    id="pediatria" name="specialties" value="Pediatría">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dermatología</td>
+                                        <td>
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input specialty-checkbox" type="checkbox"
+                                                    id="dermatologia" name="specialties" value="Dermatología">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Neurología</td>
+                                        <td>
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input specialty-checkbox" type="checkbox"
+                                                    id="neurologia" name="specialties" value="Neurología">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveChanges()">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/doctors.js"></script>
+</body>
+
+</html>
