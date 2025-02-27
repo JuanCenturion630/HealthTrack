@@ -1,8 +1,0 @@
-CREATE TABLE descuento (
-    descuento_id INT AUTO_INCREMENT PRIMARY KEY,
-    tipo VARCHAR(50) NOT NULL UNIQUE,
-    descuento DECIMAL(5,2) NOT NULL CHECK (descuento >= 0 AND descuento <= 100), -- Descuento en porcentaje
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	deleted_at DATETIME NULL
-);

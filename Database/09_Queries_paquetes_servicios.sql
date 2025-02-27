@@ -1,13 +1,13 @@
-CREATE TABLE paquetes_servicios (
-    paquete_servicio_id INT AUTO_INCREMENT PRIMARY KEY,
-    servicio_id INT NOT NULL,
-    paquete_codigo VARCHAR(50) NOT NULL,
-    UNIQUE (servicio_id, paquete_codigo), -- Un mismo servicio no puede estar dos veces en el mismo paquete
-    FOREIGN KEY (servicio_id) REFERENCES servicios(servicio_id) ON DELETE CASCADE,
-    FOREIGN KEY (paquete_codigo) REFERENCES paquetes(codigo) ON DELETE CASCADE,
+CREATE TABLE package_services (
+    package_service_id INT AUTO_INCREMENT PRIMARY KEY,
+    service_id INT NOT NULL,
+    package_code VARCHAR(50) NOT NULL,
+    UNIQUE (service_id, package_code), -- A service cannot appear twice in the same package
+    FOREIGN KEY (service_id) REFERENCES services(service_id) ON DELETE CASCADE,
+    FOREIGN KEY (package_code) REFERENCES packages(code) ON DELETE CASCADE,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	deleted_at DATETIME NULL
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at DATETIME NULL
 );
 
-CREATE INDEX idx_paquetes_servicios ON paquetes_servicios (paquete_codigo, servicio_id);
+CREATE INDEX idx_package_services ON package_services (package_code, service_id);
